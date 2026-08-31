@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Central</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>⚽ Soccer Central</h1>
+        <p>Everything about the world's most popular sport!</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Tell Us About Your Soccer Experience</h2>
+
+            <form action="https://cs.converse.edu/CSC235/formecho.php" method="get">
+
+                <p>
+                    <input type="text" name="name" placeholder="Your name">
+                </p>
+
+                <p>
+                    <input type="email" name="email" placeholder="Your email">
+                </p>
+
+                <p>
+                    <input type="password" name="favorite_password" placeholder="Enter a password">
+                </p>
+
+                <p>
+                    Favorite position:
+                    <select name="position">
+                        <option value="goalkeeper">Goalkeeper</option>
+                        <option value="defender">Defender</option>
+                        <option value="midfielder">Midfielder</option>
+                        <option value="forward">Forward</option>
+                    </select>
+                </p>
+
+                <p>
+                    Years playing soccer:
+                    <input type="number" name="years" min="0" max="50">
+                </p>
+
+                <p>
+                    Preferred foot:
+                    <input type="radio" name="foot" value="left"> Left
+                    <input type="radio" name="foot" value="right"> Right
+                    <input type="radio" name="foot" value="both"> Both
+                </p>
+
+                <p>
+                    Favorite soccer activities:
+                    <input type="checkbox" name="activity" value="training"> Training
+                    <input type="checkbox" name="activity" value="games"> Games
+                    <input type="checkbox" name="activity" value="watching"> Watching Soccer
+                    <input type="checkbox" name="activity" value="coaching"> Coaching
+                </p>
+
+                <p>
+                    <input type="date" name="favorite_date">
+                </p>
+
+                <p>
+                    <input type="color" name="favorite_color">
+                </p>
+
+                <p>
+                    <input type="url" name="favorite_team_url" placeholder="Favorite team's website">
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit Soccer Profile">
+                    <input type="reset" value="Reset">
+                </p>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Soccer Fan Survey</h2>
+
+            <form action="https://cs.converse.edu/CSC235/formecho.php" method="post">
+
+                <p>
+                    Favorite team:
+                    <input type="text" name="team">
+                </p>
+
+                <p>
+                    Favorite league:
+                    <select name="league">
+                        <option value="mls">MLS</option>
+                        <option value="premier-league">Premier League</option>
+                        <option value="la-liga">La Liga</option>
+                        <option value="serie-a">Serie A</option>
+                        <option value="bundesliga">Bundesliga</option>
+                        <option value="ligue-1">Ligue 1</option>
+                    </select>
+                </p>
+
+                <p>
+                    How often do you play soccer?
+                    <input type="radio" name="frequency" value="daily"> Daily
+                    <input type="radio" name="frequency" value="weekly"> Weekly
+                    <input type="radio" name="frequency" value="monthly"> Monthly
+                    <input type="radio" name="frequency" value="rarely"> Rarely
+                </p>
+
+                <p>
+                    Favorite soccer features:
+                    <input type="checkbox" name="feature" value="goals"> Goals
+                    <input type="checkbox" name="feature" value="skills"> Skills
+                    <input type="checkbox" name="feature" value="tactics"> Tactics
+                    <input type="checkbox" name="feature" value="competition"> Competition
+                </p>
+
+                <p>
+                    Match date:
+                    <input type="datetime-local" name="match_date">
+                </p>
+
+                <p>
+                    Favorite jersey color:
+                    <input type="color" name="jersey_color">
+                </p>
+
+                <p>
+                    Rate your soccer knowledge:
+                    <input type="range" name="knowledge" min="1" max="10" value="5">
+                </p>
+
+                <p>
+                    Favorite number:
+                    <input type="text" name="number" size="5">
+                </p>
+
+                <p>
+                    Tell us why you love soccer:
+                </p>
+
+                <p>
+                    <textarea name="reason" rows="5" cols="40"
+                        placeholder="Write your answer here..."></textarea>
+                </p>
+
+                <p>
+                    <input type="hidden" name="page" value="soccer-central">
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit Survey">
+                    <input type="reset" value="Clear Form">
+                </p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Soccer Central</p>
+    </footer>
+
+</body>
+</html>
