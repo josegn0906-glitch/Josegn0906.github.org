@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Homework 5, CSC 235 Web Programming I, Fall 2026</title>
+    <style>
+        .flag {
+            color: firebrick;
+        }
+
+        .flag::before {
+            content: "*";
+            padding-left: 2px;
+        }
+
+        :required:valid~.flag::before,
+        .flag.valid::before {
+            content: '✓';
+            color: green;
+        }
+
+        .humanity > input {
+            margin-left: 2em;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .explanations {
+            padding: 0;
+        }
+
+        div {
+            margin: 1ex 0;
+        }
+    </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("postform");
+        const colors = form.querySelectorAll('input[type="checkbox"]');
+        const firstColor = colors[0];
+        const colorsFlag = document.querySelector(".colors .flag");   // NEW
+
+        function validateColors() {
+            const anyChecked = Array.from(colors).some(function (checkbox) {
+                return checkbox.checked;
+            });
+
+            firstColor.setCustomValidity(
+                anyChecked ? "" : "Please select at least one color."
+            );
+
+            colorsFlag.classList.toggle("valid", anyChecked);         // NEW
+        }
+
+        colors.forEach(function (checkbox) {
+            checkbox.addEventListener("change", validateColors);
+        });
+
+        // NEW: re-run validation after Reset clears the checkboxes
+        form.addEventListener("reset", function () {
+            setTimeout(validateColors, 0);
+        });
+
+        validateColors();
+    });
+</script>
+</head>
+
+<body>
+    <h1>Homework 5</h1>
+
+    <form action="https://cs.converse.edu/CSC235/formecho.php"
+          method="post" id="postform">
+        <fieldset>
+            <div class="inigo">&ldquo;Hello! My name is
+                <input name="nameblank" id="nameblank"
+                       type="text" required />.<span class="flag"></span>
+                You killed my father. Prepare to die.&rdquo;
+                <sup><a id="ref1" href="#note1">1</a></sup>
+                (Or not! &#x1F607;)
+            </div>
+
+            <div class="fingers">Count Rugen has
+                <input name="fingers" id="fingers" type="number"
+                       min="0" max="10" required size="1"/>
+                fingers on his right hand.<span class="flag"></span>
+            </div>
+
+            <div class="email">
+                <label for="email">An email address (maybe mine, maybe not)
+                    is:</label>
+                <input name="email" id="email" type="email"
+                       required size="40"/>
+                <span class="flag"></span>
+            </div>
+
+            <div class="humanity">
+                <label>I am feeling mostly human today.</label>
+                <input type="radio" name="humanity"
+                       value="strongly-disagree" id="human-sdis" required />
+                <label for="human-sdis">Strongly disagree</label>
+
+                <input type="radio" name="humanity"
+                       value="disagree" id="human-dis" />
+                <label for="human-dis">Disagree</label>
+
+                <input type="radio" name="humanity"
+                       value="no_opinion" id="human-neither" />
+                <label for="human-neither">Neither agree nor disagree</label>
+
+                <input type="radio" name="humanity"
+                       value="agree" id="human-agr" />
+                <label for="human-agr">Agree</label>
+
+                <input type="radio" name="humanity"
+                       value="strongly-agree" id="human-sagr" />
+                <label for="human-sagr">Strongly agree</label></span>
+                <span class="flag"></span>
+            </div>
+
+            <div class="colors">
+                <label>I own items of the following colors (check all
+                    that apply):</label><span class="flag"></span>
+                <ul>
+                    <li style="background-color: #9DC3D4">
+                        <input type="checkbox" name="Aquamarine"
+                               value="Aquamarine" id="Aquamarine" />
+                        <label for="Aquamarine">Aquamarine</label>
+                    </li>
+                    <li style="background-color: #F88F58">
+                        <input type="checkbox" name="Tangerine"
+                               value="Tangerine" id="Tangerine" />
+                        <label for="Tangerine">Tangerine</label>
+                    </li>
+                    <li style="background-color: #E5D68E">
+                        <input type="checkbox" name="Custard"
+                               value="Custard" id="Custard" />
+                        <label for="Custard">Custard</label>
+                    </li>
+                    <li style="background-color: #964F4C">
+                        <input type="checkbox" name="Marsala"
+                               value="Marsala" id="Marsala" />
+                        <label for="Marsala">Marsala</label>
+                    </li>
+                </ul>
+            </div>
+
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Submit" />
+        </fieldset>
+    </form>
+
+    <ul class="explanations">
+        <li><span class="flag"></span> Required or invalid input (hover over control for explanation)</li>
+        <li><span class="flag valid"></span> Valid input</li>
+    </ul>
+
+    <p><sup><a href="#ref1" id="note1">1</a></sup>
+        <span style="font-style: italic">The Princess Bride.</span>
+        Dir. Rob Reiner. Screenplay by William Goldman.
+        Twentieth Century Fox Film Corp., 1987.
+    </p>
+
+</body>
+</html>
