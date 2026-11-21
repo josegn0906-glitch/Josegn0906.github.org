@@ -29,6 +29,30 @@ function renameSchool() {
   var cell = document.querySelector("tr.wofford td");
   cell.textContent = newName;
 }
+
+async function addMascots() {
+  try {
+    var response = await fetch("https://cs.converse.edu/CSC235/mascots.json");
+    var mascots = await response.json();
+
+    var rows = document.getElementById("college_table").rows;
+
+    // Header row: add the "Mascot" header cell
+    var th = document.createElement("th");
+    th.textContent = "Mascot";
+    rows[0].appendChild(th);
+
+    // Remaining rows: look up each school's mascot by name
+    for (var i = 1; i < rows.length; i++) {
+      var schoolName = rows[i].cells[0].textContent;
+      var td = document.createElement("td");
+      td.textContent = mascots[schoolName];
+      rows[i].appendChild(td);
+    }
+  } catch (error) {
+    console.log("Could not load mascots: " + error);
+  }
+}
       ////  END JAVASCRIPT FOR QUESTIONS 1-4
     </script>
 
@@ -75,7 +99,7 @@ function renameSchool() {
         </div>
         <input type="button" id="converse-gold" value="Converse Gold" onclick="makeConverseGold()" />
         <input type="button" id="change-name" value="Change school name" onclick="renameSchool()" />
-        <input type="button" id="add-mascots" value="Add mascots" />
+        <input type="button" id="add-mascots" value="Add mascots" onclick="addMascots()" />
       </fieldset>
     </form>
 
