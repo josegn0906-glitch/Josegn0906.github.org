@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Final Exam, CSC 235 Web Programming I, Fall 2026</title>
+
+    <script>
+      ////  JAVASCRIPT FOR QUESTIONS 1-4 GOES IN THIS SCRIPT ELEMENT
+
+      function showDegF(degC) {
+        var degF = (degC * 9/5) + 32;
+        document.getElementById("degrees_f").value = degF;
+      }
+
+      function showDegC(degF) {
+        var degC = (degF - 32) * 5/9;
+        document.getElementById("degrees_c").value = degC;
+      }
+      ////  END JAVASCRIPT FOR QUESTIONS 1-4
+    </script>
+
+    <style>
+      :required:invalid + .flag::before { color: firebrick; content: '*'; }
+      :required:valid + .flag::before { color: green; content: '✓'; }
+      
+      fieldset { border: none }
+      input[type='number'] { width: 3em; }
+
+      .colleges td { border-style: solid; border-color: silver;
+			  border-width: 2px }
+
+      .goldBG { background-color: rgb(244, 192, 23); }
+    </style>
+
+  </head>
+  <body>
+    <h1>Final Exam</h1>
+
+    <h2>Temperature conversions (question 1)</h2>
+
+    <form action="?" method="get">
+      <fieldset>
+        <div class="question">
+          <label for="degrees_c">&deg;C: </label>
+	        <input type="number" id="degrees_c" onchange="showDegF(this.value)"/>
+        </div>
+	      <div>
+        	<label for="degrees_f">&deg;F: </label>
+	        <input type="number" id="degrees_f" onchange="showDegC(this.value)"/>
+        </div>
+      </fieldset>
+    </form>
+
+    <h2>Spartanburg-area colleges (questions 2-4)</h2>
+
+    <form action="?" method="get">
+      <fieldset>
+        <div class="question">
+          <label for="newname">New name:</label>
+          <input type="text" name="newname" id="newname" required />
+          <output class="flag"></output>
+        </div>
+        <input type="button" id="converse-gold" value="Converse Gold" />
+        <input type="button" id="change-name" value="Change school name" />
+        <input type="button" id="add-mascots" value="Add mascots" />
+      </fieldset>
+    </form>
+
+    <table class="colleges" id="college_table">
+      <thead>
+        <tr><th>Institution</th><th>Address</th></tr>
+      </thead>
+      <tbody>
+        <tr class="converse">
+          <td>Converse University</td>
+          <td>580 E. Main St.<br />Spartanburg, SC 29302</td></tr>
+        <tr class="sherman">
+          <td>Sherman College of Straight Chiropractic</td>
+          <td>2020 Springfield Rd.<br />Spartanburg, SC 29316</td></tr>
+        <tr class="scc">
+          <td>Spartanburg Community College</td>
+          <td>P.O. Box 4386<br />Spartanburg, SC 29305</td></tr>
+        <tr class="smc">
+          <td>Spartanburg Methodist College</td>
+          <td>1000 Powell Mill Rd.<br />Spartanburg, SC 29301</td></tr>
+        <tr class="upstate">
+          <td>University of South Carolina Upstate</td>
+          <td>800 University Way<br />Spartanburg, SC 29303</td></tr>
+        <tr class="wofford">
+          <td>Wofford College</td>
+          <td>429 N. Church St.<br />Spartanburg, SC 29303</td></tr>
+      </tbody>
+    </table>
+  </body>
+</html>
