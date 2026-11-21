@@ -23,6 +23,12 @@ function makeConverseGold() {
     cells[i].classList.add("goldBG");
   }
 }
+
+function renameSchool() {
+  var newName = document.getElementById("newname").value;
+  var cell = document.querySelector("tr.wofford td");
+  cell.textContent = newName;
+}
       ////  END JAVASCRIPT FOR QUESTIONS 1-4
     </script>
 
@@ -68,7 +74,7 @@ function makeConverseGold() {
           <output class="flag"></output>
         </div>
         <input type="button" id="converse-gold" value="Converse Gold" onclick="makeConverseGold()" />
-        <input type="button" id="change-name" value="Change school name" />
+        <input type="button" id="change-name" value="Change school name" onclick="renameSchool()" />
         <input type="button" id="add-mascots" value="Add mascots" />
       </fieldset>
     </form>
