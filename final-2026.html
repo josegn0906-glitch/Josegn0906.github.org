@@ -16,6 +16,15 @@
         var degC = (degF - 32) * 5/9;
         document.getElementById("degrees_c").value = degC;
       }
+
+      function converseGold() {
+    var cells = document.querySelectorAll(".converse td");
+
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].classList.add("goldBG");
+    }
+}
+document.getElementById("converse-gold").onclick = converseGold;
       ////  END JAVASCRIPT FOR QUESTIONS 1-4
     </script>
 
